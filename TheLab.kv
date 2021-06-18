@@ -4,13 +4,13 @@ WidgetsExample:
 
 
 <WidgetsExample>:
-
+    cols: 3
     Button:
         text: "Count"
+        on_press: root.on_button_click()
         
     Label:
-        text: "root.my_text"
-        
-        font_size: "80dp"
+        text: root.my_text
+        font_size: "20dp"
         color: 1, .5, 1, 1
     
