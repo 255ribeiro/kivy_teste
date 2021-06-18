@@ -12,7 +12,7 @@ from kivy.uix.widget import Widget
 class WidgetsExample(GridLayout):
     my_text = StringProperty('<-- clique no botão')
     count = 0
-    font_size = IntegerProperty(100)
+    font_size = StringProperty(100)
     def on_button_click(self):
         self.count += 1
         self.my_text = (str(self.count))
