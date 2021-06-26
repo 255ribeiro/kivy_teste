@@ -2,12 +2,67 @@ WidgetsExample:
 
 <WidgetsExample>:
     cols: 3
+    ToggleButton:
+        text: "OFF"
+        on_state: root.on_tog_but_state(self)
+        size_hint: None, 1
+        width: "100dp"
+
     Button:
         text: "Count"
         on_press: root.on_button_click()
+        disabled: not root.count_enable
         
     Label:
         text: root.my_text
-        font_size: "20dp"
-        color: 1, .5, 1, 1
+        font_size: "80dp"
+        font_name: "./fonts/Lcd.ttf"
+        color: 1, .5, .5, 1
+
+    Switch:
+        id: my_switch
+        size_hint: None, 1
+        width: "100dp"
+        on_active: root.on_switch_active(self)
+        active: True
+
+    Slider:
+        disabled: not my_switch.active
+        id: my_slider
+        min:0
+        max:100
+        value: 50
+        #on_value: root.on_slider_value(self)
+        orientation: "vertical"
+
+    BoxLayout:
+
+        orientation: "vertical"
+
+        Label:
+            text: str(round(my_slider.value, 3))
+
+        ProgressBar:
+            max: 100
+            value: round(my_slider.value, 3)
+    TextInput:
+        id: text_box_in
+        size_hint: None, 1
+        width: "100dp"
+        text: "Foo"
+        multiline: False
+        on_text_validate: root.on_text_validate(self)
+    Label:
+        text: root.text_input_str
+
+
+    Image:
+
+        source: "images/donut.gif"
+
+    Image:
+        source: './images/cake.jpg'
+      
+
+        
     
